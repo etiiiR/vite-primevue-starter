@@ -28,6 +28,20 @@ export default defineConfig({
       port: false,
       path: '/ws',
     },
+    proxy: {
+      '/api': {
+        target:
+          'http://svrecr02mig.hs.coop.ch:8080/sap/opu/odata/sap/ZPIM_FRONTEND/',
+        changeOrigin: true,
+        secure: false,
+        headers: {
+          Authorization: 'Basic Uk9FVEk6RXRpc2hhcmU5OC4s',
+        },
+        ws: true,
+        rewrite: path => path.replace(/^\/api/, ''),
+      },
+    },
+    // cors: true,
   },
 
   // https://github.com/antfu/vite-ssg

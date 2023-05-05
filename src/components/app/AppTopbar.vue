@@ -26,11 +26,9 @@ function onTopbarMenuToggle(event: any) {
 <template>
   <div class="layout-topbar">
     <router-link to="/" class="layout-topbar-logo">
-      <span>Vite PrimeVue Starter</span>
+     
     </router-link>
-    <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle">
-      <i class="pi pi-bars" />
-    </button>
+
 
     <button
       v-styleclass="{
@@ -53,19 +51,7 @@ function onTopbarMenuToggle(event: any) {
           <span>Settings</span>
         </button>
       </li>
-      <li>
-        <button class="p-link layout-topbar-button">
-          <i class="pi pi-user" />
-          <span>Profile</span>
-        </button>
-      </li>
-      <li>
-        <button class="p-link layout-topbar-button" @click="redirectToGithub">
-          <i class="pi pi-github" />
-          <span>Github</span>
-        </button>
-      </li>
-    </ul>
+      </ul>
     <OverlayPanel id="overlay_panel" ref="op" append-to="body" style="width: 200px">
       <div class="field-radiobutton">
         <RadioButton
