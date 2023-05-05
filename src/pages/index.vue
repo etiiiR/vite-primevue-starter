@@ -1,57 +1,66 @@
-<script setup lang='ts'>
-import AdvertiseBox from '@/components/AdvertiseBox.vue'
+<script setup lang="ts">
+import GridTable from '../components/Gridtable.vue'
+import { useThemeStore } from '@/store'
+const themeStore = useThemeStore()
+themeStore.setLight()
+const isCollapsed = ref(false)
+function toggle() {
+  isCollapsed.value = !isCollapsed.value
+}
 </script>
 
 <template>
-  <div class="surface-0 text-center">
-    <div class="mb-3 font-bold text-4xl">
-      <span class="text-green-600">PrimeVue </span>
-      <span class="text-blue-400"> & TypeScript</span>
-      <span class="text-blue-600"> & Vite</span>
-    </div>
-    <h2 class="text-2xl pb-6">
-      Starter for Vue.js Development.
-    </h2>
-    <div class="grid grid-cols-3 gap-4">
-      <AdvertiseBox header="VUE 3.2" icon="pi-check-circle" color="green-600">
-        Composition Api
-      </AdvertiseBox>
-      <AdvertiseBox header="Script Setup" icon="pi-check-circle" color="green-600">
-        Reduce a lot of boilerplate code
-      </AdvertiseBox>
-      <AdvertiseBox header="Pinia Store 2" icon="pi-check-circle" color="green-600">
-        Replacement / Alternative for VUEX Store
-      </AdvertiseBox>
-      <AdvertiseBox header="Vite 3" icon="pi-check-circle" color="blue-600">
-        Vite Plugins like ViteIcons, PurgeIcons, ... and Vitest
-      </AdvertiseBox>
-      <AdvertiseBox header="Vite Pages" icon="pi-check-circle" color="blue-600">
-        Routing by File/Folder & Vite Markdown included
-      </AdvertiseBox>
-      <AdvertiseBox header="Vite Layouts" icon="pi-check-circle" color="blue-600">
-        Layouts like nuxt layout templates
-      </AdvertiseBox>
-      <AdvertiseBox header="Typescript 5" icon="pi-check-circle" color="blue-400">
-        Typesafe by default
-      </AdvertiseBox>
-
-      <AdvertiseBox header="PrimeVue 3.26" icon="pi-check-circle" color="green-600">
-        Excellent Component Library for VUE
-      </AdvertiseBox>
-      <AdvertiseBox header="PrimeVue Theme and Layout" icon="pi-check-circle" color="green-600">
-        Free Sakai theme (PrimeIcons 2 included)
-      </AdvertiseBox>
-      <AdvertiseBox header="Uno CSS" icon="pi-check-circle" color="blue-400">
-        The instant on-demand Atomic CSS engine
-      </AdvertiseBox>
-      <AdvertiseBox header="Formkit" icon="pi-check-circle" color="green-600">
-        Formkit PrimeVue Example included
-      </AdvertiseBox>
-      <AdvertiseBox header="VueUse" icon="pi-check-circle" color="green-600">
-        VueUse Head included
-      </AdvertiseBox>
-    </div>
+  <div>
+    <section class="fd-dynamic-page fd-dynamic-page--xl" aria-label="Dynamic Page Desktop Example">
+      <header class="fd-dynamic-page__header">
+        <div class="fd-dynamic-page__title-area" tabindex="0">
+          <div class="fd-dynamic-page__main-container">
+            <div class="fd-dynamic-page__breadcrumb-title-container">
+              <nav aria-label="Breadcrumbs">
+                <VariantManagement />
+              </nav>
+              <div class="fd-dynamic-page__title-container" />
+            </div>
+          </div>
+          <div class="fd-dynamic-page__subtitle" />
+        </div>
+        <div class="fd-dynamic-page__collapsible-header-container">
+          <div v-if="isCollapsed" id="fddplhvc7" class="fd-dynamic-page__collapsible-header" role="region" aria-label="Dynamic Page Desktop Header">
+            <sap-filterbar />
+          </div>
+          <div class="fd-dynamic-page__collapsible-header-visibility-container fd-dynamic-page__collapsible-header-visibility-container--no-shadow">
+            <div class="fd-dynamic-page__collapsible-header-visibility-container--left-gradient" />
+            <div role="toolbar" aria-label="Header actions" class="fd-dynamic-page__collapsible-header-visibility-container--button-group">
+              <button
+                class="fd-button fd-button--compact fd-dynamic-page__collapse-button"
+                aria-label="See More"
+                aria-expanded="true"
+                aria-haspopup="true"
+                aria-controls="fddplhvc6"
+                @click="toggle"
+              >
+                <i class="sap-icon--slim-arrow-up" />
+              </button>
+              <button
+                class="fd-button fd-button--compact fd-dynamic-page__pin-button"
+                aria-label="Pin this"
+              >
+                <i class="sap-icon--pushpin-off" />
+              </button>
+            </div>
+            <div class="fd-dynamic-page__collapsible-header-visibility-container--right-gradient" />
+          </div>
+        </div>
+        <div class="fd-dynamic-page__tabs--overflow">
+          <ul class="fd-tabs fd-tabs--l fd-dynamic-page__tabs fd-dynamic-page__tabs--add-shadow" role="tablist" />
+        </div>
+      </header>
+      <div class="fd-dynamic-page__content">
+        <div id="AiWfz165" class="fd-tabs__panel" aria-expanded="true" role="tabpanel">
+          <GridTable />
+        </div>
+      </div>
+    </section>
+    <br><br>
   </div>
 </template>
-
-<style scoped></style>
